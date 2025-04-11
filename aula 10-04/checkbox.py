@@ -13,7 +13,7 @@ ttk.Label(window).grid(row = 0, column = 1) #posicionando texto
 n = tk.StringVar()
 monthchoosen = ttk.Combobox(window, width= 27, textvariable = n)
 
-monthchoosen['values'] = ('Yuri', 'Garro', 'Cassio Orangotango')
+monthchoosen['values'] = ('Yuri', 'Garro', 'Cassio')
 
 monthchoosen.grid(column= 1, row = 5)
 monthchoosen.current()
