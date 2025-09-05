@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 
 # Funções para abrir as telas
+
+
 def abrir_clientes():
     import cad_cliente
 
@@ -16,6 +18,9 @@ def abrir_usuarios():
 
 def abrir_vendas():
     import cad_venda
+
+def list_users():
+    import tela_listar_usuarios
 
 def sair():
     if messagebox.askyesno("Sair", "Deseja encerrar o sistema?"):
