@@ -52,6 +52,7 @@ btn_usuarios = tk.Button(frame, text="Usuários", width=20, command=abrir_usuari
 btn_vendas = tk.Button(frame, text="Vendas", width=20, command=abrir_vendas)
 btn_sair = tk.Button(frame, text="Encerrar Sistema", width=20, command=sair, bg="turquoise", fg="black")
 
+
 # Posicionando os botões com grid (linha, coluna)
 btn_clientes.grid(row=0, column=0, pady=5)
 btn_funcionarios.grid(row=1, column=0, pady=5)
