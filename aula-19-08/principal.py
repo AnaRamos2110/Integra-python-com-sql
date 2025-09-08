@@ -22,6 +22,9 @@ def abrir_vendas():
 def list_users():
     import tela_listar_usuarios
 
+def list_products():
+    import tela_listar_produtos
+
 def sair():
     if messagebox.askyesno("Sair", "Deseja encerrar o sistema?"):
         root.destroy()
