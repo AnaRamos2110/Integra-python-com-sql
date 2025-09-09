@@ -1,18 +1,18 @@
 import tkinter as tk
 from tkinter import messagebox
-from inserir_produto import listar_produtos, excluir_produto  # criar excluir_produto no inserir_produto.py
+from inserir_produto import listar_produto, excluir_produto
 
-def exibir_usuarios():
-    produtos = listar_produtos()  # pega os usuários do banco
+def exibir_produtos():
+    produtos = listar_produto()  # pega os produtos do banco
 
     if not produtos:
-        messagebox.showinfo("Produtos", "Nenhum produto cadastrado ainda.")
+        messagebox.showinfo("Produtos", "Nenhum produto cadastrado.")
         return
 
     # Cria janela filha
     janela_lista = tk.Toplevel()
-    janela_lista.title("Usuários Cadastrados")
-    janela_lista.resizable(False, False)  # não permite redimensionar
+    janela_lista.title("Produtos Cadastrados")
+    janela_lista.resizable(False, False)
 
     # Centraliza
     window_width = 450
@@ -39,23 +39,23 @@ def exibir_usuarios():
     # Função para atualizar listbox
     def atualizar_lista():
         listbox.delete(0, tk.END)
-        for n, s in listar_produtos():
-            listbox.insert(tk.END, f"{n} | {s}")
+        for d, v in listar_produto():
+            listbox.insert(tk.END, f"{d} | {v}")
 
-    # Função para excluir usuário
+    # Função para excluir produto
     def excluir():
         selecionado = listbox.curselection()
         if not selecionado:
-            messagebox.showwarning("Aviso", "Selecione um usuário para excluir.")
+            messagebox.showwarning("Aviso", "Selecione um produto para excluir.")
             return
 
-        usuario_texto = listbox.get(selecionado[0])
-        nome = usuario_texto.split(" | ")[0]  # pega o nome do usuário
+        produto_texto = listbox.get(selecionado[0])
+        descricao = produto_texto.split(" | ")[0]
 
-        confirmar = messagebox.askyesno("Confirmação", f"Deseja realmente excluir o usuário '{nome}'?")
+        confirmar = messagebox.askyesno("Confirmação", f"Deseja realmente excluir o produto '{descricao}'?")
         if confirmar:
-            excluir_produto(descricao)  # função no banco de dados
-            messagebox.showinfo("Sucesso", f"O produto '{descricao}' foi excluído com sucesso.")
+            excluir_produto(descricao)
+            messagebox.showinfo("Sucesso", f"Produto '{descricao}' excluído com sucesso.")
             atualizar_lista()
 
     # Botões

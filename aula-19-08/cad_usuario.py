@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from inserir_usuario import inserir_usuario  # função separada no outro arquivo.
-from tela_listar_usuarios import exibir_usuarios  # importa a tela de listagem
+from tela_listar_usuarios import exibir_usuarios # importa a tela de listagem
 
 
 def salvar_usuario():
