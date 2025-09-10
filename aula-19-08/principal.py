@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 from cad_produto import abrir_tela_produto
 from cad_usuario import abrir_tela_usuario
 from cad_cliente import abrir_tela_cliente
