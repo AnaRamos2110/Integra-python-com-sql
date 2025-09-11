@@ -1,5 +1,5 @@
 from flask import Flask, render_template_string
-from conexao import criar_conexao_fornecedor
+from fornecedor_conexao import criar_conexao_fornecedor
 
 app = Flask(__name__)
 

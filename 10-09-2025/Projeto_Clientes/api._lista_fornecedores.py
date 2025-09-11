@@ -4,8 +4,8 @@ from conexao import criar_conexao  # usa seu arquivo de conexão existente
 app = Flask(__name__)
 
 # Rota para exibir todos os clientes
-@app.route("/forncedores", methods=["GET"])
-def listar_forncedores():
+@app.route("/fornecedores", methods=["GET"])
+def listar_fornecedores():
     try:
         conn = criar_conexao()
         cursor = conn.cursor(dictionary=True)  # retorna resultados como dicionário

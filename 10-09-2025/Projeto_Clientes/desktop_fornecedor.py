@@ -1,12 +1,11 @@
 import tkinter as tk
 from tkinter import messagebox
 import flask_requests
-from inserir_cliente import inserir_cliente
-
+from inserir_fornecedor import inserir_fornecedor
 # ---------------------------
 # Função para salvar cliente
 # ---------------------------
-def salvar_cliente():
+def salvar_fornecedor():
     nome = entry_nome.get().strip()
     email = entry_email.get().strip()
     telefone = entry_telefone.get().strip()
@@ -16,7 +15,7 @@ def salvar_cliente():
         return
 
     # Inserir no banco MySQL
-    if not inserir_cliente(nome, email, telefone):
+    if not inserir_fornecedor(nome, email, telefone):
         messagebox.showerror("Erro", "Falha ao salvar no banco de dados.")
         return
 
@@ -29,10 +28,10 @@ def salvar_cliente():
     except:
         messagebox.showwarning(
             "Aviso",
-            "API web não encontrada. Cliente salvo apenas no MySQL."
+            "API web não encontrada. Fornecedor salvo apenas no MySQL."
         )
 
-    messagebox.showinfo("Sucesso", "Cliente cadastrado com sucesso!")
+    messagebox.showinfo("Sucesso", "Fornecedor cadastrado com sucesso!")
 
     # Limpar os campos
     entry_nome.delete(0, tk.END)
@@ -43,7 +42,7 @@ def salvar_cliente():
 # Janela principal
 # ---------------------------
 root = tk.Tk()
-root.title("Cadastro de Clientes")
+root.title("Cadastro de Fornecedor")
 root.resizable(False, False)
 
 # Centralizar a tela
@@ -72,7 +71,7 @@ tk.Label(frame, text="Telefone:", anchor="w").grid(row=2, column=0, sticky="w")
 entry_telefone = tk.Entry(frame, width=30)
 entry_telefone.grid(row=2, column=1, pady=5)
 
-btn_salvar = tk.Button(frame, text="Salvar Cliente", width=20, command=salvar_cliente)
+btn_salvar = tk.Button(frame, text="Salvar Fornecedor", width=20, command=salvar_fornecedor)
 btn_salvar.grid(row=3, column=0, columnspan=2, pady=15)
 
 # ---------------------------
