@@ -11,8 +11,8 @@ TABELA_HTML = """
     <meta charset="UTF-8">
     <title>Lista de Fornecedores</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f5f5f5; }
-        table { border-collapse: collapse; width: 80%; margin: auto; background-color: #fff; }
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #0C2340; }
+        table { border-collapse: collapse; width: 80%; margin: auto; background-color: #f6f5d9; }
         th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
         th { background-color: #4CAF50; color: white; }
         tr:nth-child(even) { background-color: #f2f2f2; }
@@ -48,7 +48,7 @@ def clientes_html():
         conn = criar_conexao_fornecedor()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT * FROM fornecedores")
-        clientes = cursor.fetchall()
+        fornecedores = cursor.fetchall()
         cursor.close()
         conn.close()
         return render_template_string(TABELA_HTML, fornecedores=fornecedores)
