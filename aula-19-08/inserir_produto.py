@@ -10,3 +10,31 @@ def inserir_produto(descricao, valor):
         conexao.commit()
         cursor.close()
         conexao.close()
+
+# Função para listar usuários
+def listar_produto():
+    con = conectar()
+    cursor = con.cursor()
+    cursor.execute("SELECT descricao, valor FROM produtos")
+    resultado = cursor.fetchall()  # retorna lista de tuplas
+    cursor.close()
+    con.close()
+    return resultado
+
+def excluir_produto(descricao):
+    con = conectar()
+    cursor = con.cursor()
+    cursor.execute("DELETE FROM produtos WHERE descricao = %s", (descricao,))
+    con.commit()
+    cursor.close()
+    con.close()
+
+def editar_produto(descricao, valor):
+    con = conectar()
+    cursor = con.cursor()
+    sql = "UPDATE produtos SET descricao = %s, valor = %s WHERE descricao = %s"
+    valores = (descricao,valor)
+    cursor.execute(sql, valores)
+    con.commit()
+    cursor.close()
+    con.close()
